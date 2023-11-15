@@ -1,5 +1,5 @@
 name: eth-infinithsm/bundler
-on: [dispatch_worflow]
+on: workflow_dispatch
 
 jobs:
   bundler:
@@ -21,10 +21,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
+      - uses: docker/setup-buildx-action@v3
       - uses: docker/build-push-action@v5
         with:
-          path: deps/eth-infinitism/bundler
+          context: deps/eth-infinitism/bundler
           file: bundler/Dockerfile
           push: true
-          tags: 5afe/erc4337-bundlers-eth-infinitism-bundler:latest
+          tags: ghcr.io/5afe/erc4337-bundlers-eth-infinitism-bundler:latest
