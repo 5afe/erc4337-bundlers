@@ -2,7 +2,7 @@ name: pimlicolabs/alto
 on: workflow_dispatch
 
 jobs:
-  bundler:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
