@@ -1,4 +1,4 @@
-name: asdf
+name: alchemyplatform/rundler
 on: [dispatch_worflow]
 
 jobs:
@@ -10,11 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
         with:
-          repository: eth-infinitism/bundler
-          ref: v0.6.0
-          path: deps/eth-infinitism/bundler
+          repository: alchemyplatform/rundler
+          path: deps/alchemyplatform/rundler
 
       - uses: docker/login-action@v3
         with:
@@ -24,7 +22,7 @@ jobs:
 
       - uses: docker/build-push-action@v5
         with:
-          path: deps/eth-infinitism/bundler
-          file: bundler/Dockerfile
+          path: deps/alchemyplatform/rundler
+          file: alchemyplatform/rundler/Dockerfile
           push: true
-          tags: 5afe/erc4337-bundlers-bundler:latest
+          tags: 5afe/erc4337-bundlers-alchemyplatform-rundler:latest
